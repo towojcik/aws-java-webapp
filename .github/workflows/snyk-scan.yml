@@ -7,6 +7,10 @@ on:
 
 jobs:
   snyk:
+    permissions:
+      contents: read
+      security-events: write
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,6 +30,6 @@ jobs:
           image: "${{ vars.DOCKER_NAME }}/${{ github.event.repository.name }}:${{ github.run_number }}"
           args: --file=Dockerfile
       - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: snyk.sarif
+          sarif_file: results.sarif
