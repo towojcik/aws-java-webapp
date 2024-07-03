@@ -9,8 +9,9 @@ on:
 jobs:
   snyk:
     permissions:
-      contents: read
       security-events: write
+      contents: read
+      actions: read
 
     runs-on: ubuntu-latest
     steps:
@@ -36,4 +37,5 @@ jobs:
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: results.sarif
+          sarif_file: results.sarif\
+          category: my-analysis-tool
