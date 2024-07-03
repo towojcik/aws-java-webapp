@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  snyk:
+  snyk_skan:
     permissions:
       security-events: write
       contents: read
