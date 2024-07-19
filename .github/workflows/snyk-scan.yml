@@ -47,6 +47,13 @@ jobs:
       with:
         image: "${{ vars.DOCKER_NAME }}/${{ github.event.repository.name }}:${{ github.run_number }}"
         args: --file=Dockerfile
+
+        
+    - name: Post process snyk sarif file  
+      run: |
+        sed -i 's/"security-severity": "null"/"security-severity": "0"/g' snyk.sarif
+
+        
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v3
       with:
