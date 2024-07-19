@@ -1,4 +1,4 @@
-FROM node:gallium-alpine3.18
+FROM node:20.13.0-alpine3.18
 WORKDIR /app
 ENV NODE_ENV=production
 
