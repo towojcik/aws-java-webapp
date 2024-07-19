@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: "${{ vars.DOCKER_NAME }}/${{ github.event.repository.name }}:${{ github.head_ref }}"
+          tags: "${{ vars.DOCKER_NAME }}/${{ github.event.repository.name }}:${{ github.run_number }}"
